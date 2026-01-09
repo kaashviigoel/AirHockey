@@ -35,7 +35,6 @@ public class PuckScript : MonoBehaviour
         WasGoal = false;
         startPosition = rb.position;
 
-        // initial serve
         ManualReset();
     }
 
@@ -72,16 +71,13 @@ public class PuckScript : MonoBehaviour
         StopAllCoroutines();
         WasGoal = false;
 
-        // reset puck
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.position = startPosition;
 
-        // reset players
         if (redPlayer != null) redPlayer.ResetPosition();
         if (bluePlayer != null) bluePlayer.ResetPosition();
 
-        // re-serve puck
         Vector2 dir = Random.value > 0.5f ? Vector2.up : Vector2.down;
         dir.x = Random.Range(-0.5f, 0.5f);
         dir.Normalize();
