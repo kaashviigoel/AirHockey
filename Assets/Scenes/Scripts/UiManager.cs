@@ -17,14 +17,14 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     [Header("Canvases")]
-    public GameObject CanvasMenu;    // menu (mode select)
-    public GameObject CanvasGame;    // in-game HUD
-    public GameObject CanvasRestart; // win / restart screen
+    public GameObject CanvasMenu;
+    public GameObject CanvasGame;
+    public GameObject CanvasRestart; 
 
     [Header("Restart Texts")]
     public GameObject RedWinTxt;
     public GameObject BlueWinTxt;
-    public GameObject DrawTxt;       // optional
+    public GameObject DrawTxt;
 
     [Header("Other")]
     public ScoreScript scoreScript;
@@ -34,7 +34,6 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        // Start in menu
         if (CanvasMenu != null) CanvasMenu.SetActive(true);
         if (CanvasGame != null) CanvasGame.SetActive(false);
         if (CanvasRestart != null) CanvasRestart.SetActive(false);
@@ -61,7 +60,6 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    // Menu buttons
     public void SetModeFirstToMaxScore()
     {
         currentMode = GameMode.FirstToMaxScore;
@@ -140,7 +138,6 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    // Used only in FirstToMaxScore mode
     public void ShowRestartCanvas(bool redWon)
     {
         if (currentMode != GameMode.FirstToMaxScore)
