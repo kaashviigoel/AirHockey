@@ -20,7 +20,6 @@ public class ScoreScript : MonoBehaviour
     [Header("Max score to win")]
     public int MaxScore = 5;
 
-    // expose for timed mode
     public int CurrentRedScore => redScore;
     public int CurrentBlueScore => blueScore;
 
@@ -31,12 +30,11 @@ public class ScoreScript : MonoBehaviour
         {
             redScore = value;
 
-            // Only auto-end in FirstToMaxScore mode
             if (uiManager != null &&
                 uiManager.currentMode == UiManager.GameMode.FirstToMaxScore &&
                 redScore == MaxScore)
             {
-                uiManager.ShowRestartCanvas(true); // red wins
+                uiManager.ShowRestartCanvas(true); 
             }
         }
     }
@@ -52,7 +50,7 @@ public class ScoreScript : MonoBehaviour
                 uiManager.currentMode == UiManager.GameMode.FirstToMaxScore &&
                 blueScore == MaxScore)
             {
-                uiManager.ShowRestartCanvas(false); // blue wins
+                uiManager.ShowRestartCanvas(false); 
             }
         }
     }
